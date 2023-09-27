@@ -1,0 +1,18 @@
+{
+   "AP Clement 43": [
+      {
+         "fileName": null,
+         "page_pk": 8151,
+         "pageNr": 1,
+         "docpagenumber": 1,
+         "uri": "https://quod.lib.umich.edu/cgi/t/text/api/image/shelburne:shelburne.0043.001:00000001/full/max/0/default.jpg"
+      },
+      {
+         "fileName": null,
+         "page_pk": 8152,
+         "pageNr": 2,
+         "docpagenumber": 2,
+         "uri": "https://quod.lib.umich.edu/cgi/t/text/api/image/shelburne:shelburne.0043.001:00000002/full/max/0/default.jpg"
+      }
+    ]
+}
