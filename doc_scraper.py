@@ -1,8 +1,7 @@
 import requests
 import json
-from credentials import auth_token
+from credentials import auth_token,voyages_api_baseurl
 import os
-from pathlib import Path
 import time
 
 url = voyages_api_baseurl
