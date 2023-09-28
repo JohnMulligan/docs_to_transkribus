@@ -30,6 +30,8 @@ However, the best source for those JPEG's was still the libraries' IIIF endpoint
 
 ### Getting the image metadata from the SV API
 
+
+
 ### Pushing the files up
 
 This use iterates over all documents in the json file, and uploads the pages on a single-threaded process.
