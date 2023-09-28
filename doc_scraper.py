@@ -6,7 +6,7 @@ import time
 
 url = voyages_api_baseurl
 
-# We already did 'DOCP Huntington 57 21'
+# We already did 'DOCP Huntington 57 24'
 
 doc_collections={
 	'AP':[
