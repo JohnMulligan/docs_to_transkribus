@@ -86,7 +86,8 @@ def download_iiif_image(page):
 	iiif_url=page['uri']
 	img_filename=getpagefilename(page)
 	tmp_filepath=os.path.join('tmp/',img_filename)
-	
+	if iiif_url in ["None","",None]:
+		return None
 	print('fetching',img_filename,iiif_url)
 	error_counter=0
 	while error_counter<5:
@@ -111,7 +112,8 @@ def pages_to_transkribus(work_and_params):
 	
 	for page in pages_batch:
 		tmp_filepath=download_iiif_image(page)
-		push_iiif_image(tmp_filepath,page,auth_headers,uploadId,xml_root)
+		if tmp_filepath is not None:
+			push_iiif_image(tmp_filepath,page,auth_headers,uploadId,xml_root)
 
 ##############################################
 
