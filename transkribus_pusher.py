@@ -2,6 +2,7 @@ import shutil
 import json
 import requests
 import os
+import time
 import urllib3
 import urllib
 import xml.etree.ElementTree as ET
@@ -59,13 +60,17 @@ def push_iiif_image(tmp_filepath,page,headers,upload_id,xml_root):
 	error_counter=0
 	print("pushing-->",filename)
 	while error_counter<5:
-		resp=requests.put(
-				url,
-				files=files,
-				data={},
-				headers=headers
-			)
-		if resp.status_code == 200:
+		try:
+			resp=requests.put(
+					url,
+					files=files,
+					data={},
+					headers=headers
+				)
+			sc=resp.status_code
+		except:
+			sc="not good"
+		if sc == 200:
 			os.remove(tmp_filepath)
 			break
 		else:
