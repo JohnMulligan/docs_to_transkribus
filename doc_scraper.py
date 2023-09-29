@@ -84,16 +84,17 @@ for doc_collection in doc_collections:
 						image_filename=source_page["image_filename"]
 						##If michigan has filenames, I don't -- will have to use pk+'.jpg' -- argh
 						page_pk=source_page["id"]
-						docpagedict={
-							"fileName":image_filename,
-							"page_pk":page_pk,
-							"pageNr":shortrefpagenumber,
-							"docpagenumber":docpagenumber,
-							'uri':iiif_baseimage_url,
-						}
-						docpagenumber+=1
-						shortrefpagenumber+=1
-						shortrefpagelist.append(docpagedict)
+						if iiif_baseimage_url not in ['',None,"None"]:
+							docpagedict={
+								"fileName":image_filename,
+								"page_pk":page_pk,
+								"pageNr":shortrefpagenumber,
+								"docpagenumber":docpagenumber,
+								'uri':iiif_baseimage_url,
+							}
+							docpagenumber+=1
+							shortrefpagenumber+=1
+							shortrefpagelist.append(docpagedict)
 			else:
 				print("---------->FAILED")
 		documents_pages_update(short_ref,shortrefpagelist)
