@@ -160,12 +160,14 @@ if __name__ == '__main__':
 		#create the upload handler on the transkribus side
 		for page in documents[shortref]:
 			pagenumber=page['pageNr']
-			filename=getpagefilename(page)
-			page_json={
-				"pageNr":pagenumber,
-				"fileName":filename
-			}
-			document_json['pageList']['pages'].append(page_json)
+			iiif_url=page['uri']
+			if iiif_url not in ['','None',None]:
+				filename=getpagefilename(page)
+				page_json={
+					"pageNr":pagenumber,
+					"fileName":filename
+				}
+				document_json['pageList']['pages'].append(page_json)
 		print('creating doc',shortref)
 		uploadId,xml_root=transkribus_create_document(document_json,auth_headers)
 		print("----\nuploadId---->",uploadId)
